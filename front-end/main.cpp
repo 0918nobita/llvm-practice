@@ -28,7 +28,7 @@ std::string join(const std::vector<std::string> &v, const char &delim = 0) {
 int main() {
   std::vector<std::string> tokens = split("PRINT HELLO", ' ');
   std::cout << join(tokens, ',') << std::endl;
-  /*std::ifstream ifs("sample.txt");
+  std::ifstream ifs("sample.txt");
   if (ifs.fail()) {
     std::cout << "読み込みに失敗しました" << std::endl;
     return 1;
@@ -38,9 +38,9 @@ int main() {
   std::string llvm_ir = "@.str = constant [13 x i8] c\"Hello, world\\00\", align 1\ndefine i32 @main() {\n";
 
   while (getline(ifs, str)) {
-    std::vector<std::string> tokens = split(&str, ' ');
+    std::vector<std::string> tokens = split(str, ' ');
     
-    std::cout << join(&tokens, ',') << std::endl;
+    std::cout << join(tokens, ',') << std::endl;
 
     if (str == "HELLO") llvm_ir += "  call i32 @puts(i8* getelementptr inbounds ([13 x i8], [13 x i8]* @.str, i64 0, i64 0))\n" ;
   }
@@ -49,6 +49,6 @@ int main() {
 
   std::ofstream outputfile("sample.ll");
   outputfile << llvm_ir;
-  outputfile.close();*/
+  outputfile.close();
   return 0;
 }
